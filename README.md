@@ -1,1 +1,1 @@
-# 🚀 Rocketseat Projects ![Rocketseat Logo](assets/rs-logo.svg)
+# ![Rocketseat Logo](assets/rs-logo.svg) Rocketseat Projects
