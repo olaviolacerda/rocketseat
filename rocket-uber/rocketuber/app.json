@@ -1,0 +1,9 @@
+{
+  "name": "rocketuber",
+  "displayName": "rocketuber",
+  "android": {
+    "permissions": [
+      "ACCESS_FINE_LOCATION"
+    ]
+  }
+}

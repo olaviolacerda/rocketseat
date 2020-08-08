@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+    <input type="text" name="user">
+    <button onclick="adicionar()">Adicionar</button>
+    <ul id="repos"></ul>
+
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const inputElement = document.querySelector('input');
+        const repoList = document.querySelector('#repos');
+
+        function listaRepos(repos) {
+            repoList.innerHTML = '';
+
+            for (repo of repos) {
+                const li = document.createElement('li');
+                li.appendChild(document.createTextNode(repo.name));
+                repoList.appendChild(li);
+            }
+
+            inputElement.value = '';
+        }
+
+        function loading() {
+            repoList.innerHTML = '';
+
+            const loading = document.createElement('li');
+            loading.appendChild(document.createTextNode('Carregando...'));
+
+            repoList.appendChild(loading);
+        }
+
+        function renderError() {
+            repoList.innerHTML = '';
+
+            const error = document.createElement('li');
+            error.appendChild(document.createTextNode('Erro: Usuário não existe.'));
+
+            error.style.color = 'red';
+
+            repoList.appendChild(error);
+        }
+
+        function adicionar() {
+            const nome = inputElement.value;
+
+            if (!nome) return;
+
+            loading();
+
+            axios.get(`https://api.github.com/users/${nome}/repos`)
+                .then(function (response) {
+                    listaRepos(response.data);
+                })
+                .catch(function (error) {
+                    renderError();
+                })
+        }
+
+
+    </script>
+</body>
+
+</html>

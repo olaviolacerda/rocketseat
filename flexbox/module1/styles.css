@@ -1,0 +1,31 @@
+html,
+body, 
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+  display: flex;
+}
+
+.box {
+  width: 100px;
+  height: 60px;
+  background-color: blueviolet;
+  margin: 5px;
+}
+
+.violet {
+  order: 3;
+}
+
+.green {
+  background-color: greenyellow;
+  order: 2;
+}
+
+.blue {
+  background-color: blue;
+  order: 1;
+}
